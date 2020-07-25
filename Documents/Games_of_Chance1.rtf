@@ -1,0 +1,124 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 import random\
+\
+money = 100\
+\
+num = random.randint(1, 10)\
+dice1 = random.randint(1,6)\
+dice2 = random.randint(1,6)\
+card1 = random.randint(1,13)\
+card2 = random.randint(1,13)\
+\
+#Write your game of chance functions here\
+\
+\
+#Coin flip Game\
+print('Lets flip a coin, the odds are 2|1!')\
+print('\\n')\
+def coin_flip(bet,call):\
+  global money\
+  if money < bet:\
+    return print("Sorry, you don't have that much to bet on this game.")\
+  if bet < 0:\
+    return print("Hey! you can't bet negative money? What does that even mean?")\
+  elif (num%2 == 0) and call == 'Heads':\
+    money += bet*2\
+    return "It's Heads you win " + str(bet*2) + " dollars!"\
+  elif (num%2 == 0) and call != 'Heads':\
+    money -= bet*2\
+    return "It's Heads you lose " + str(bet*2) + " dollars!"\
+  elif (num%2 != 20) and call == 'Tails':\
+    money += bet*2\
+    return "It's Tails you win " + str(bet*2) + " dollars!"\
+  elif (num%2 != 20) and call != 'Tails':\
+    money -= bet*2\
+    return "It's Tails you lose " + str(bet*2) + " dollars!"\
+\
+\
+\
+#Cho-Han game\
+\
+def cho_han(bet,call):\
+  global money\
+  if money <= 0:\
+    return print("Sorry, it looks like you're out of money!")\
+  if money < bet:\
+    return print("Sorry, you don't have that much to bet on this game.")\
+  if bet < 0:\
+    return print("Hey! you can't bet negative money? What does that even mean?")\
+  dice_sum = dice1 + dice2\
+  if dice_sum%2 == 0 and call == "Even":\
+    money += bet*4\
+    return str(dice_sum) + " is Even, you win " + str(bet*4) + " dollars!"\
+  if dice_sum%2 == 0 and call == "Odd":\
+    money -= bet*4\
+    return str(dice_sum) + " is Even, you lose " + str(bet*4) + " dollars!"\
+  if dice_sum%2 != 0 and call == "Odd":\
+    money += bet*4\
+    return str(dice_sum) + " is Odd, you win " + str(bet*4) + " dollars!"\
+  if dice_sum%2 != 0 and call == "Even":\
+    money -= bet*4\
+    return str(dice_sum) + " is Odd, you lose " + str(bet*4) + " dollars!"\
+\
+\
+#Pick a card game\
+def pick_card(bet,call):\
+  global money\
+  if money <= 0:\
+    return print("Sorry, it looks like you're out of money!")\
+  if money < bet:\
+    return print("Sorry, you don't have that much to bet on this game.")\
+  if bet < 0:\
+    return print("Hey! you can't bet negative money? What does that even mean?")\
+  if card1 > card2 and call == "High":\
+    money += bet*2\
+    return "You Card was higher, you win " + str(bet*2) + " dollars!"\
+  if card1 < card2 and call == "High":\
+    money -= bet*2\
+    return "You Card was lower, you lose " + str(bet*2) + " dollars!"\
+  if card1 < card2 and call == "Low":\
+    money += bet*2\
+    return "You Card was lower, you win " + str(bet*2) + " dollars!"\
+  if card1 > card2 and call == "Low":\
+    money -= bet*2\
+    return "You Card was higher, you lose " + str(bet*2) + " dollars!"\
+  else:\
+    return "Its a tie! Sorry no payout!"\
+\
+\
+\
+#Call your game of chance functions here\
+\
+#Call Coin Flip\
+print(coin_flip(25,'Tails')) \
+print('\\n')\
+print('Your Wallet: $'  + str(money))\
+\
+print('\\n')\
+print('\\n')\
+print('\\n')\
+\
+\
+#Call Cho-Han\
+print("Let's play Chan-Ho, the odds are 4|1!")\
+print('\\n')\
+print(cho_han(10,'Odd'))\
+print('\\n')\
+print('Your Wallet: $'  + str(money))\
+print('\\n')\
+print('\\n')\
+print('\\n')\
+\
+\
+#Call Card Game\
+print("Draw a card and bet if it will be higher or lower that the House's card! The odds are 2|1!")\
+print('\\n')\
+print(pick_card(15,'Low'))\
+print('\\n')\
+print('Your Wallet: $'  + str(money))}
