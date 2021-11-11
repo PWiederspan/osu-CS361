@@ -1,27 +1,32 @@
 import * as plant from './plant_model.mjs';
 import express from 'express';
+import * as http from 'http';
 
 
 const PORT = 3000;
 
 const app = express();
+let ip_address = '';
+
+let options = {
+  host: 'http://v6.ipv6-test.com/api/myip.php',
+  port: 80,
+  path: '/'
+};
 
 app.use(express.static('public'));
 
-app.use(express.urlencoded({
-    extended: true
-}));
 
 app.use(express.json());
 
 
 /**
- * Create a new exercise with the name, reps, weight, unit, and date provided in the body
+ * Create a new Plant with the name, reps, weight, unit, and date provided in the body
  */
 app.post('/plants', (req, res) => {
-    exercise.createExercise(req.body.name, req.body.reps, req.body.weight, req.body.unit, req.body.date)
-        .then( exercise => {
-            res.status(201).json(exercise);
+    plant.createPlant(req.body.name, req.body.reps, req.body.weight, req.body.unit, req.body.date)
+        .then( plant => {
+            res.status(201).json(plant);
         })
         .catch(error => {
             console.error(error);
@@ -31,6 +36,27 @@ app.post('/plants', (req, res) => {
             res.status(500).json({ Error: 'Request failed' });
         });
 });
+
+
+http.get('http://v4.ipv6-test.com/api/myip.php', (resp) => {
+
+  // A chunk of data has been received.
+  resp.on('ip_address', (chunk) => {
+    ip_address += chunk;
+    console.log(ip_address);
+  });
+
+  // The whole response has been received. Print out the result.
+  resp.on('end', () => {
+    console.log(ip_address);
+    return ip_address
+  });
+
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});
+
+
 
 /**
  * Retrive plant.
