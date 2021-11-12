@@ -77,20 +77,25 @@
   }
 }
 
+input{
+
+}
+
 table{
+  padding: 25px;
   background-color: #FFFFFF;
 
 }
 
 td, th {
   padding: 8px;
-  border-radius: 25pt;
   color: black;
+  border-style: solid;
+  border-width: thin;
+  border-color: black
 }
 tr{
   background-color: #ffffff;
-  border-style: solid;
-  border-color: black
 }
 tr:nth-child(even){background-color: #9fc39d;}
 
