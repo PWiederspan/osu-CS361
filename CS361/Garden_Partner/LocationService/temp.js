@@ -17,7 +17,7 @@ app.set('port', port);
 app.get('/location_service',  async function (req, res, next){
     console.log("welcome");
     console.log("The request data is : ", req.query.ip_address);
-    let access_key = "?access_key=ad67da1a39c646ad010989270c3901bd"
+    let access_key = "?access_key=9f9e98699825f57700ae4e9012a1a2af"
     let request_data = "?" +req.query.ip_address + "="+ access_key
     url = "http://api.ipstack.com/"+req.query.ip_address+access_key
 
@@ -30,15 +30,15 @@ app.get('/location_service',  async function (req, res, next){
             console.error({"message":"could not fetch", error:e});
         }
     );
-    
-    
+
+
     res.send(location);
 });
 
 app.get('/', function(req, res, next){
     console.log("homepage ");
     res.render("This the home page");
-    
+
 });
 
 
@@ -48,13 +48,13 @@ app.use(function(req, res, next){
 
     err.status(404);
     next(err);
- 
+
 });
 app.use(function(err, req, res, next){
     console.error(err.stack);
     res.status(500);
     console.log('500');
-    
+
 });
 app.listen(app.get('port'), function(){
     console.log("Express started on http://localhost:"+ app.get('port'));

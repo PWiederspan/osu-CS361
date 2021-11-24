@@ -7,22 +7,34 @@
 
 .nav-menu {
   background-color: #bababa;
-  width: 25vh;
-  height: 100vh;
+  position: fixed;
+  width: 250px;
+  height: 100%;
   display: flex;
   justify-content: center;
-  position: fixed;
   top: 0;
   line-height: 200%;
-  left: -100%;
   transition: 850ms;
 }
 
 .nav-menu.active {
-  left: 0;
+  left: -12%;
   transition: 350ms;
 }
 
+.nav-menu.active:hover {
+  left: 0;
+  transition: 350ms;
+}
+.menuText {
+  position: absolute;
+  right: -25px;
+  height: 60px;
+  color: black;
+  font-size: 50px;
+  transform: rotate(90deg);
+  top: 25%;
+}
 .nav-text {
   display: flex;
   justify-content: start;

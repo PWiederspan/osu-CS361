@@ -61,8 +61,8 @@ const findPlant = async (filter, projection, limit) => {
  * @param {String} _id
  * @returns
  */
-const findPlantById = async (_id) => {
-    const query = Plant.findById(_id);
+const findPlantById = async (name) => {
+    const query = Plant.findById(name);
     return query.exec();
 }
 

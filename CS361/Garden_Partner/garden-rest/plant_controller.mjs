@@ -43,7 +43,7 @@ http.get('http://v4.ipv6-test.com/api/myip.php', (resp) => {
   // A chunk of data has been received.
   resp.on('ip_address', (chunk) => {
     ip_address += chunk;
-    console.log(ip_address);
+    console.log(ip_address)
   });
 
   // The whole response has been received. Print out the result.
@@ -64,8 +64,8 @@ http.get('http://v4.ipv6-test.com/api/myip.php', (resp) => {
  * Otherwise, all plants are returned.
  */
 
- app.get('/plants/:_id', (req, res) => {
-     const plantId = req.params._id;
+ app.get('/plants/:name', (req, res) => {
+     const plantId = req.params.name;
      plant.findPlantById(plantId)
          .then(plant => {
              if (plant !== null) {

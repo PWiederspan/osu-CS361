@@ -3,10 +3,10 @@ import React from 'react';
 function Plant({plant}) {
     return (
         <tr>
-            <td>{plant.name}</td>
-            <td>{plant.details}</td>
-            <td>{plant.planting}</td>
-            <td>{plant.harvesting}</td>
+            <td>{plant.Name}</td>
+            <td>{plant.Details}</td>
+            <td>{plant.Planting}</td>
+            <td>{plant.Harvesting}</td>
         </tr>
     );
 }

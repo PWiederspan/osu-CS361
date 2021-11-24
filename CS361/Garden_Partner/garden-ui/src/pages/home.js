@@ -32,7 +32,7 @@ function Home({setPlantToEdit}) {
       //creating IP state
       const [ip, setIP] = useState('');
 
-      //creating function to load ip address from the API
+      //create function to load ip address from the API
       const getData = async () => {
         const res = await axios.get('https://geolocation-db.com/json/')
         setIP(res.data.IPv)
@@ -66,8 +66,8 @@ function Home({setPlantToEdit}) {
           <>
               <h2>List of Plants</h2>
               <h3>My Location: {location}</h3>
-               <button onClick={e => getData()}>Update Location</button>
-              <PlantList plants={plants}onDelete={onDelete}onEdit={onEdit}></PlantList>
+              <button onClick={e => getData()}>Update Location</button>
+              <PlantList plants={plants}></PlantList>
 
           </>
       );

@@ -12,6 +12,7 @@ function Navbar() {
         </div>
         <nav className={'nav-menu active'}>
           <ul>
+            <h1 className="menuText">Menu</h1>
             {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>

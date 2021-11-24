@@ -1,7 +1,7 @@
 import React from 'react';
 import Plant from './plant';
 
-function PlantList({plants, onDelete, onEdit }) {
+function PlantList({plants}) {
     return (
         <table id="plants">
             <thead>
@@ -13,7 +13,7 @@ function PlantList({plants, onDelete, onEdit }) {
                 </tr>
             </thead>
             <tbody>
-                {plants.map((plant, i) => <Plant plant={plant}key={i}/>)}
+                {plants.map((plant, i) => <Plant plant={plant}key={plant.Name} />)}
             </tbody>
         </table>
     );
